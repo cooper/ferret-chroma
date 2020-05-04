@@ -48,7 +48,7 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{`(<<)([\'"]?)([a-zA-Z_]\w*)(\2;?\n.*?\n)(\3)(\n)`, chroma.ByGroups(chroma.LiteralString, chroma.LiteralString, chroma.LiteralStringDelimiter, chroma.LiteralString, chroma.LiteralStringDelimiter, chroma.Text), nil},
 			{`__END__`, chroma.CommentPreproc, chroma.Push("end-part")},
 			{`(?<!\.)((\*)self|this|scope|return|class|argv|file|line)\b((?:\.)(?:(\b\d\w+)|(?:[A-Z][A-Z0-9_$]*\b\$+)|(?:[\w$]+)))*`, chroma.NameVariableGlobal, nil},
-			{`[$@%#]+`, chroma.NameVariable, chroma.Push("varname")},
+			{`[$@%]+`, chroma.NameVariable, chroma.Push("varname")},
 			{`0_?[0-7]+(_[0-7]+)*`, chroma.LiteralNumberOct, nil},
 			{`0x[0-9A-Fa-f]+(_[0-9A-Fa-f]+)*`, chroma.LiteralNumberHex, nil},
 			{`0b[01]+(_[01]+)*`, chroma.LiteralNumberBin, nil},
