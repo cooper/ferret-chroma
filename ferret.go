@@ -46,7 +46,8 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{`m(?=[/!\\{<\[(@%$])`, chroma.LiteralStringRegex, chroma.Push("balanced-regex")},
 			{`((?<==~)|(?<=\())\s*/(\\\\|\\[^\\]|[^\\/])*/[gcimosx]*`, chroma.LiteralStringRegex, nil},
 			{`\s+`, chroma.Text, nil},
-			{chroma.Words(``, `\b`, `dump`, `inspect`, `delay`, `timeout`, `say`, `print`, `delete`, `weaken`, `detail`, `proto`, `init`, `hashValue`, `lowercase`, `uppercase`, `result`, `empty`, `length`, `sum`, `sum0`, `s`, `lastIndex`, `even`, `odd`, `sqrt`, `log`, `log10`, `exp`, `e`, `pi`, `cbrt`, `abs`, `ceil`, `floor`, `round`, `square`, `name`, `signature`, `version`, `keys`, `values`, `nextElement`, `nextElements`, `more`, `iterator`, `sin`, `asin`, `cos`, `acos`, `tan`, `atan`, `atan2`, `cot`, `sec`, `csc`, `shift`, `unshift`, `pop`, `push`, `without`, `withoutAll`, `grep`, `contains`, `indexOf`, `map`, `first`, `any`, `all`, `remove`, `removeAll`, `splice`, `split`, `reverse`, `flatten`, `root`, `logb`, `factorial`, `polar`, `connect`, `print`, `println`, `say`, `close`, `trimPrefix`, `trimSuffix`, `hasSuffix`, `hasPrefix`, `fill`, `word`, `fromWord`, `match`, `copy`, `join`, `setValue`, `getValue`, `deleteValue`, `weakenValue`), chroma.NameBuiltin, nil},
+			{chroma.Words(``, `\b`, `dump`, `inspect`, `delay`, `timeout`, `say`, `print`, `delete`, `weaken`, `detail`), chroma.NameBuiltin, nil},
+			{`\.\b(proto|init|hashValue|lowercase|uppercase|result|empty|length|sum|sum0|s|lastIndex|even|odd|sqrt|log|log10|exp|e|pi|cbrt|abs|ceil|floor|round|square|name|signature|version|keys|values|nextElement|nextElements|more|iterator|sin|asin|cos|acos|tan|atan|atan2|cot|sec|csc|shift|unshift|pop|push|without|withoutAll|grep|contains|indexOf|map|first|any|all|remove|removeAll|splice|split|reverse|flatten|root|logb|factorial|polar|connect|print|println|say|close|trimPrefix|trimSuffix|hasSuffix|hasPrefix|fill|word|fromWord|match|copy|join|setValue|getValue|deleteValue|weakenValue)\b`, chroma.NameBuiltin, nil},
 			{`(<<)([\'"]?)([a-zA-Z_]\w*)(\2;?\n.*?\n)(\3)(\n)`, chroma.ByGroups(chroma.LiteralString, chroma.LiteralString, chroma.LiteralStringDelimiter, chroma.LiteralString, chroma.LiteralStringDelimiter, chroma.Text), nil},
 			{`__END__`, chroma.CommentPreproc, chroma.Push("end-part")},
 			{`(?<!\.)((\*)self|this|scope|return|class|argv|file|line)\b((?:\.)(?:(\b\d\w+)|(?:[A-Z][A-Z0-9_$]*\b\$+)|(?:[\w$]+)))*`, chroma.NameVariableGlobal, nil},
@@ -93,7 +94,6 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 		"funcname": {
 			{`[a-zA-Z_]\w*[!?]?`, chroma.NameFunction, nil},
 			{`\s+`, chroma.Text, nil},
-			{`(\([$@%]*\))(\s*)`, chroma.ByGroups(chroma.Punctuation, chroma.Text), nil},
 			{`;`, chroma.Punctuation, chroma.Pop(1)},
 			{`\n`, chroma.Text, chroma.Pop(1)},
 			{`->`, chroma.Operator, chroma.Pop(1)},
