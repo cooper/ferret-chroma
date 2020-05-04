@@ -95,6 +95,8 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{`\s+`, chroma.Text, nil},
 			{`(\([$@%]*\))(\s*)`, chroma.ByGroups(chroma.Punctuation, chroma.Text), nil},
 			{`;`, chroma.Punctuation, chroma.Pop(1)},
+			{`\n`, chroma.Text, chroma.Pop(1)},
+			{`->`, chroma.Operator, chroma.Pop(1)},
 			{`.*?\{`, chroma.Punctuation, chroma.Pop(1)},
 		},
 		"cb-string": {
