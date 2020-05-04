@@ -29,7 +29,6 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 		"root": {
 			{`\A\#!.+?$`, chroma.CommentHashbang, nil},
 			{`\#.*?$`, chroma.CommentSingle, nil},
-			{`^=[a-zA-Z0-9]+\s+.*?\n=cut`, chroma.CommentMultiline, nil},
 			{chroma.Words(``, `\b`, `case`, `continue`, `do`, `else`, `elsif`, `for`, `foreach`, `if`, `last`, `my`, `next`, `our`, `redo`, `reset`, `then`, `unless`, `until`, `while`, `print`, `new`, `BEGIN`, `CHECK`, `INIT`, `END`, `return`), chroma.Keyword, nil},
 			{`(format)(\s+)(\w+)(\s*)(=)(\s*\n)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.Name, chroma.Text, chroma.Punctuation, chroma.Text), chroma.Push("format")},
 			{`(eq|lt|gt|le|ge|ne|not|and|or|cmp)\b`, chroma.OperatorWord, nil},
