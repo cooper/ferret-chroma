@@ -60,7 +60,7 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{"`(\\\\\\\\|\\\\[^\\\\]|[^`\\\\])*`", chroma.LiteralStringBacktick, nil},
 			{`<([^\s>]+)>`, chroma.LiteralStringRegex, nil},
 			{`(package)(\s+)([a-zA-Z_]\w*(?:::[a-zA-Z_]\w*)*)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.NameNamespace), nil},
-			{`(class)(\s+)([a-zA-Z_]\w*(?:::[a-zA-Z_]\w*)*)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.Class), nil},
+			{`(class)(\s+)([a-zA-Z_]\w*(?:::[a-zA-Z_]\w*)*)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.NameClass), nil},
 			{`(load)(\s+)([a-zA-Z_]\w*(?:::[a-zA-Z_]\w*)*)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.NameNamespace), nil},
 			{`(func|method|hook|type|alias|prop)(\s+)`, chroma.ByGroups(chroma.Keyword, chroma.Text), chroma.Push("funcname")},
 			{`(\[\]|\^|::|<<|>>|>=|<=>|<=|={3}|!=|=~|!~|&&?|\|\||\.{1,2})`, chroma.Operator, nil},
