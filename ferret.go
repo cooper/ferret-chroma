@@ -68,6 +68,7 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{`(\[\]|\^|::|<<|>>|>=|<=>|<=|={3}|!=|=~|!~|&&?|\|\||\.{1,2})`, chroma.Operator, nil},
 			{`[-+/*%=<>&^|!\\~]=?`, chroma.Operator, nil},
 			{`[()\[\]:;,<>/?{}]`, chroma.Punctuation, nil},
+			{`[^\W\d]\w*`, chroma.KeywordType, nil},
 			{`(?=\w)`, chroma.Name, chroma.Push("name")},
 		},
 		"format": {
