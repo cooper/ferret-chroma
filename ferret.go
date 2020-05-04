@@ -88,11 +88,11 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 		},
 		"funcname": {
 			{`[a-zA-Z_]\w*[!?]?`, chroma.NameFunction, nil},
-			{`\s+`, chroma.Text, nil},
+			{`[^\S\r\n]+`, chroma.Text, nil},
 			{`;`, chroma.Punctuation, chroma.Pop(1)},
-			{`\n`, chroma.Text, chroma.Pop(1)},
 			{`->`, chroma.Operator, chroma.Pop(1)},
 			{`.*?\{`, chroma.Punctuation, chroma.Pop(1)},
+			{`\n`, chroma.Text, chroma.Pop(1)},
 		},
 		"cb-string": {
 			{`\\[{}\\]`, chroma.LiteralStringOther, nil},
