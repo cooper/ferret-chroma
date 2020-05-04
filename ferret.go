@@ -30,6 +30,7 @@ var Ferret = lexers.Register(chroma.MustNewLexer(
 			{`\A\#!.+?$`, chroma.CommentHashbang, nil},
 			{`\#.*?$`, chroma.CommentSingle, nil},
 			{chroma.Words(``, `\b`, `continue`, `do`, `else`, `for`, `in`, `if`, `last`, `next`, `redo`, `defer`, `until`, `while`, `switch`, `case`, `before`, `after`, `load`, `stop`, `fail`, `catch`, `throw`, `inside`, `can`, `isa`, `transform`, `satisfies`, `gather`, `take`), chroma.Keyword, nil},
+			{chroma.Words(``, `\b`, `share`, `var`, `want`, `need`), chroma.KeywordDeclaration, nil},
 			{`(format)(\s+)(\w+)(\s*)(=)(\s*\n)`, chroma.ByGroups(chroma.Keyword, chroma.Text, chroma.Name, chroma.Text, chroma.Punctuation, chroma.Text), chroma.Push("format")},
 			{`s/(\\\\|\\[^\\]|[^\\/])*/(\\\\|\\[^\\]|[^\\/])*/[egimosx]*`, chroma.LiteralStringRegex, nil},
 			{`s!(\\\\|\\!|[^!])*!(\\\\|\\!|[^!])*![egimosx]*`, chroma.LiteralStringRegex, nil},
