@@ -1,2 +1,2 @@
 # ferret-chroma
- Ferret language support for Chroma
+[Ferret](https://github.com/cooper/ferret) language support for [Chroma](https://github.com/alecthomas/chroma) (used by [quiki](https://github.com/cooper/quiki))
